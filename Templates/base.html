@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Personal Portfolio{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/scripts.js' %}" defer></script>
+    <script src="https://kit.fontawesome.com/160de5337d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" class="logo" alt="Logo"></a>
+                <div id="nav">
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#project">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" download class="button b2">Download CV</a></li>
+                        <i class="fas fa-times" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fas fa-bars" onclick="openmenu()"></i>
+                </div>
+            </nav>
+            {% block header-text %}
+            {% endblock %}
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Contact Section -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-details">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <P> <i class="fa-regular fa-envelope"></i> abhirajpoot4402@gmail.com</P>
+                    <P> <i class="fa-solid fa-mobile-screen"></i> +918115110285</P>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <textarea name="Message" rows="5" placeholder="Your Message"></textarea>
+                        <button type="submit" class="button b2">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
